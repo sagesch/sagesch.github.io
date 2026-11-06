@@ -1,0 +1,477 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Sage Schildroth | Mechanical Engineering Portfolio</title>
+<meta name="description" content="Mechanical engineer (Iowa State University, minor in computer science) focused on robotics, mechatronics and rugged product design.">
+<meta property="og:title" content="Sage Schildroth | Mechanical Engineering Portfolio">
+<meta property="og:description" content="Robotics, mechatronics and rugged product design.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..800&family=IBM+Plex+Sans:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚙️</text></svg>">
+<style>
+:root{
+  --paper:#F4F6F7; --surface:#FFFFFF; --ink:#1B232C; --muted:#56616D;
+  --line:#C5CCD3; --accent:#A6192E; --gold:#F1BE48; --studio:#E6EAED;
+  --display:"Archivo","Arial Narrow",Arial,sans-serif;
+  --body:"IBM Plex Sans","Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+  color-scheme:light;
+  box-sizing:border-box;
+  padding-top:env(safe-area-inset-top,0px);
+  padding-bottom:env(safe-area-inset-bottom,0px);
+}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){
+    --paper:#12171D; --surface:#1A2129; --ink:#E6EAEE; --muted:#9AA5B1;
+    --line:#2F3944; --accent:#E8596F; --studio:#DDE2E6; color-scheme:dark;
+  }
+}
+:root[data-theme="dark"]{
+  --paper:#12171D; --surface:#1A2129; --ink:#E6EAEE; --muted:#9AA5B1;
+  --line:#2F3944; --accent:#E8596F; --studio:#DDE2E6; color-scheme:dark;
+}
+*,*::before,*::after{box-sizing:inherit}
+html{scroll-behavior:smooth;scroll-padding-top:calc(72px + env(safe-area-inset-top,0px))}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+body{margin:0;background:var(--paper);color:var(--ink);font:400 17px/1.6 var(--body);-webkit-font-smoothing:antialiased}
+img{max-width:100%;height:auto;display:block}
+a{color:inherit}
+a:focus-visible,button:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:2px}
+.wrap{max-width:1120px;margin:0 auto;padding:0 24px}
+.skip{position:absolute;left:-999px;top:8px;background:var(--ink);color:var(--paper);padding:8px 12px;z-index:50}
+.skip:focus{left:8px}
+
+/* Header */
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:10;background:var(--paper)}
+header.top{position:sticky;top:env(safe-area-inset-top,0px);z-index:9;background:var(--paper);border-bottom:1px solid var(--line)}
+header.top .wrap{display:flex;align-items:center;justify-content:space-between;height:64px;gap:16px}
+.mark{font:700 18px/1 var(--display);font-stretch:112%;text-decoration:none;letter-spacing:.01em}
+nav ul{display:flex;gap:28px;list-style:none;margin:0;padding:0}
+nav a{text-decoration:none;font-weight:500;font-size:15px;color:var(--muted)}
+nav a:hover{color:var(--ink)}
+
+/* Hero: drawing sheet */
+.hero{padding:56px 0 72px}
+.sheet{position:relative;border:1.5px solid var(--ink);padding:14px}
+.sheet-inner{border:1px solid var(--line);display:grid;grid-template-columns:1.15fr 1fr;min-height:460px}
+.zones{position:absolute;display:flex;justify-content:space-around;font:500 11px/1 var(--display);color:var(--muted)}
+.zones.h{left:14px;right:14px;top:1px}
+.zones.v{top:14px;bottom:14px;left:3px;flex-direction:column}
+.hero-text{padding:48px 44px;display:flex;flex-direction:column;justify-content:center;border-right:1px solid var(--line)}
+.hero h1{font:800 clamp(44px,7.2vw,88px)/.92 var(--display);font-stretch:118%;letter-spacing:-.015em;margin:0 0 24px}
+.hero p.lede{font-size:19px;max-width:30em;margin:0 0 12px}
+.hero p.sub{color:var(--muted);margin:0 0 32px;max-width:32em}
+.btns{display:flex;flex-wrap:wrap;gap:12px}
+.btn{display:inline-block;padding:12px 20px;font:600 15px/1 var(--body);text-decoration:none;border:1.5px solid var(--ink)}
+.btn.primary{background:var(--accent);border-color:var(--accent);color:#fff}
+.btn.primary:hover{filter:brightness(1.08)}
+.btn:not(.primary):hover{background:var(--ink);color:var(--paper)}
+.hero-fig{margin:0;background:var(--studio);display:flex;flex-direction:column;justify-content:center;padding:40px 32px 20px}
+.hero-fig img{width:100%;max-width:460px;margin:0 auto}
+.hero-fig figcaption{margin-top:28px;font-size:13px;color:#56616D;text-align:center}
+
+/* Sections */
+section{padding:72px 0;border-top:1px solid var(--line)}
+.sec-head{display:flex;align-items:baseline;justify-content:space-between;gap:24px;margin-bottom:40px;flex-wrap:wrap}
+h2{font:750 clamp(30px,4vw,44px)/1.05 var(--display);font-stretch:110%;margin:0;letter-spacing:-.01em}
+.sec-head p{margin:0;color:var(--muted);max-width:28em}
+
+/* Projects */
+.project{display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:start;padding:48px 0;border-top:1px solid var(--line)}
+.project:first-of-type{border-top:0;padding-top:0}
+.project .when{font:600 14px/1 var(--display);font-stretch:110%;color:var(--accent);margin:0 0 12px}
+.project h3{font:700 clamp(24px,2.6vw,30px)/1.15 var(--display);font-stretch:106%;margin:0 0 16px}
+.project p{margin:0 0 16px;max-width:36em}
+.facts{list-style:none;padding:0;margin:20px 0;display:grid;gap:10px}
+.facts li{padding-left:18px;position:relative}
+.facts li::before{content:"";position:absolute;left:0;top:.62em;width:8px;height:8px;border:1.5px solid var(--accent)}
+.tools{display:flex;flex-wrap:wrap;gap:8px;margin:20px 0 0;padding:0;list-style:none}
+.tools li{font-size:13px;font-weight:500;padding:5px 10px;border:1px solid var(--line);background:var(--surface)}
+.scope{font-size:15px;color:var(--muted);border-left:3px solid var(--gold);padding:4px 0 4px 14px;margin-top:20px}
+.textlink{font-weight:600;color:var(--accent);text-underline-offset:3px}
+.shots{display:grid;gap:12px}
+.shot{margin:0;background:var(--surface);border:1px solid var(--line)}
+.shot.studio{background:var(--studio);border-color:transparent;padding:28px;display:flex;align-items:center;justify-content:center;min-height:240px}
+.shot figcaption{font-size:13px;color:var(--muted);padding:10px 14px}
+.shot.studio{flex-direction:column}
+.shot.studio figcaption{color:#56616D;padding:16px 0 0}
+.pair{display:grid;grid-template-columns:1fr 1.4fr;gap:12px}
+.pair .shot.studio img{max-height:260px;width:auto}
+
+/* About */
+.about-grid{display:grid;grid-template-columns:1.2fr 1fr;gap:48px}
+.about-grid p{margin:0 0 16px;max-width:36em}
+dl.edu{margin:0;border:1px solid var(--line);background:var(--surface)}
+dl.edu div{display:grid;grid-template-columns:130px 1fr;border-top:1px solid var(--line)}
+dl.edu div:first-child{border-top:0}
+dt,dd{margin:0;padding:14px 16px}
+dt{font-size:14px;color:var(--muted);border-right:1px solid var(--line)}
+dd{font-weight:500}
+
+/* Contact */
+.contact h2{max-width:16em;margin-bottom:20px}
+.contact p{color:var(--muted);max-width:34em;margin:0 0 28px}
+.contact-list{list-style:none;padding:0;margin:28px 0 0;display:grid;gap:8px}
+.contact-list a{text-underline-offset:3px}
+.copy{font:500 14px/1 var(--body);background:none;border:1.5px solid var(--ink);color:var(--ink);padding:12px 16px;cursor:pointer}
+.copy:hover{background:var(--ink);color:var(--paper)}
+
+/* Footer title block */
+footer{padding:0 0 48px}
+.titleblock{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;border:1.5px solid var(--ink);font-size:14px}
+.titleblock div{padding:10px 14px;border-left:1px solid var(--line)}
+.titleblock div:first-child{border-left:0}
+.titleblock span{display:block;font:600 10px/1.4 var(--display);font-stretch:110%;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+.titleblock strong{font-weight:600}
+
+.brief{margin:0;border:1.5px solid var(--ink);background:var(--surface)}
+.brief dl{margin:0}
+.brief dl div{display:grid;grid-template-columns:120px 1fr;border-top:1px solid var(--line)}
+.brief dl div:first-child{border-top:0}
+.brief dt{font-size:14px;color:var(--muted);border-right:1px solid var(--line);padding:14px 16px}
+.brief dd{padding:14px 16px;font-weight:400;font-size:16px}
+.brief p.brief-title{margin:0;max-width:none;font:600 10px/1.4 var(--display);font-stretch:110%;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);padding:10px 16px;border-bottom:1.5px solid var(--ink)}
+.renders{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+.renders .shot img{aspect-ratio:4/3;object-fit:cover;width:100%}
+@media (max-width:520px){.brief dl{margin:0}
+.brief dl div{grid-template-columns:1fr}.brief dt{border-right:0;padding-bottom:0}.renders{gap:8px}.renders .shot figcaption{font-size:12px;padding:8px}}
+
+.jobs{list-style:none;margin:0;padding:0}
+.job{display:grid;grid-template-columns:240px 1fr;gap:40px;padding:32px 0;border-top:1px solid var(--line)}
+.job:first-child{border-top:0;padding-top:0}
+.job-meta p{margin:0;color:var(--muted);font-size:15px}
+.job-meta p.org{font:700 20px/1.25 var(--display);font-stretch:106%;color:var(--ink);margin-bottom:6px}
+.job h3{font:600 18px/1.35 var(--body);margin:0 0 4px}
+.job h3 span{font-weight:400;color:var(--muted);font-size:15px;margin-left:6px}
+.job .facts{margin-top:14px;max-width:40em}
+@media (max-width:860px){.job{grid-template-columns:1fr;gap:12px}}
+
+/* Responsive */
+@media (max-width:860px){
+  .sheet-inner,.project,.about-grid{grid-template-columns:1fr}
+  .hero-text{border-right:0;border-bottom:1px solid var(--line);padding:36px 24px}
+  .project{gap:28px}
+  .project .shots{order:-1}
+  .titleblock{grid-template-columns:1fr 1fr}
+  .titleblock div:nth-child(3){border-left:0}
+  .titleblock div:nth-child(n+3){border-top:1px solid var(--line)}
+  .zones{display:none}
+  .sheet{padding:8px}
+}
+@media (max-width:620px){
+  header.top .wrap{height:auto;flex-direction:column;align-items:flex-start;gap:8px;padding-top:12px;padding-bottom:10px}
+  html{scroll-padding-top:calc(96px + env(safe-area-inset-top,0px))}
+  nav ul{gap:4px 14px;flex-wrap:wrap}
+  nav a{font-size:14px}
+}
+@media (max-width:520px){
+  .mark{font-size:16px}
+  .pair{grid-template-columns:1fr}
+  dl.edu div{grid-template-columns:1fr}
+  dt{border-right:0;padding-bottom:0}
+}
+</style>
+</head>
+<body id="top">
+<a class="skip" href="#main">Skip to content</a>
+
+<header class="top">
+  <div class="wrap">
+    <a class="mark" href="#top">Sage Schildroth</a>
+    <nav aria-label="Main">
+      <ul>
+        <li><a href="#work">Work</a></li>
+        <li><a href="#experience">Experience</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="Sage_Schildroth_Resume.pdf" target="_blank" rel="noopener">Résumé</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+  <div class="wrap">
+    <div class="hero">
+      <div class="sheet">
+        <div class="zones h" aria-hidden="true"><span>1</span><span>2</span><span>3</span><span>4</span></div>
+        <div class="zones v" aria-hidden="true"><span>A</span><span>B</span><span>C</span></div>
+        <div class="sheet-inner">
+          <div class="hero-text">
+            <h1>Sage Schildroth</h1>
+            <p class="lede">Mechanical engineer who designs hardware that has to survive the real world, from autonomous field robots and PLC-controlled machines to sealed camera enclosures.</p>
+            <p class="sub">B.S. in Mechanical Engineering with a minor in Computer Science, Iowa State University, May 2027. Looking for full-time roles in mechanical design, mechatronics and robotics.</p>
+            <div class="btns">
+              <a class="btn primary" href="#work">See my projects</a>
+              <a class="btn" href="Sage_Schildroth_Resume.pdf" target="_blank" rel="noopener">View résumé</a>
+            </div>
+          </div>
+          <figure class="hero-fig">
+            <img src="images/mach-horizontal.webp" width="1000" height="359" alt="Black machined stereo camera housing with two lenses on the front face and the MACH logo between them.">
+            <figcaption>IP67 stereo camera housing designed for MACH</figcaption>
+          </figure>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <section id="work">
+    <div class="wrap">
+      <div class="sec-head">
+        <h2>Projects</h2>
+        <p>Listed oldest to newest.</p>
+      </div>
+
+      <article class="project">
+        <div>
+          <p class="when">June 2017</p>
+          <h3>agBOT Challenge: autonomous weed and feed robot</h3>
+          <p>At 12 years old, I designed and built a robot for the agBOT Challenge Weed &amp; Feed Competition at Gerrish Farms in Rockville, Indiana, entering as Team Gizmoze with my father as an advisor. The task was to build a robot that drives itself down rows of corn, finds and sprays weeds, and fertilizes the crop.</p>
+          <ul class="facts">
+            <li>Placed third and won $10,000, competing against university and company teams including Purdue, IUPUI and the University of Regina.</li>
+            <li>Robot navigated the corn rows autonomously, with targeted spraying for weeds and fertilizer delivery for crops.</li>
+            <li>Judged by engineering leaders from Yamaha Motor Ventures, The Climate Corporation and Blue River Technology.</li>
+          </ul>
+          <a class="textlink" href="https://www.precisionfarmingdealer.com/articles/2906-agbot-challenge-crowns-competition-champions" target="_blank" rel="noopener">Read the Precision Farming Dealer coverage</a>
+          <ul class="tools" aria-label="Tools used">
+            <li>Autodesk Inventor</li><li>LabVIEW</li><li>Autonomous navigation</li><li>Fluid delivery</li>
+          </ul>
+        </div>
+        <div class="shots">
+          <figure class="shot">
+            <img src="images/agbot-2017.jpg" width="1600" height="900" alt="Sage, age 12, holding a third-place trophy next to the four-wheeled agBOT robot in a cornfield. The robot carries GPS antennas, a solar panel, electronics enclosures and a liquid tank.">
+            <figcaption>With the robot and the third-place trophy at Gerrish Farms.</figcaption>
+          </figure>
+        </div>
+      </article>
+
+      <article class="project">
+        <div>
+          <p class="when">MACH</p>
+          <h3>Sealed stereo camera housing</h3>
+          <p>I designed the enclosure for a stereo camera system at MACH. The housing holds both camera modules and the onboard vision processor, and is built to an IP67 rating, so it is dust-tight and survives temporary immersion in water.</p>
+          <ul class="facts">
+            <li>Now in production: the cameras are sold for use in off-road automation.</li>
+            <li>Gaskets seal each camera lens and the rear cover to meet IP67.</li>
+            <li>Packaged the stereo camera pair and vision processing hardware in one compact machined body.</li>
+            <li>Designed a second, horizontal-mount version so the same system fits different installations.</li>
+          </ul>
+          <p class="scope">My role: mechanical design of the enclosure. The camera and vision software were developed by others.</p>
+          <ul class="tools" aria-label="Tools used">
+            <li>Autodesk Inventor</li><li>IP67 sealing</li><li>Gasket design</li><li>Design for machining</li>
+          </ul>
+        </div>
+        <div class="shots">
+          <div class="pair">
+            <figure class="shot studio">
+              <img src="images/mach-vertical.webp" width="952" height="1000" alt="Vertical-mount version of the housing: a square black enclosure with two lenses across the top and the MACH logo below.">
+              <figcaption>Vertical mount</figcaption>
+            </figure>
+            <figure class="shot studio">
+              <img src="images/mach-horizontal.webp" width="1000" height="359" alt="Horizontal-mount version of the housing: a flat black enclosure with ribbed top and two lenses on the front face.">
+              <figcaption>Horizontal mount</figcaption>
+            </figure>
+          </div>
+        </div>
+      </article>
+
+      <article class="project">
+        <div>
+          <p class="when">ATI, mechatronics internship, summer 2024</p>
+          <h3>3-axis probe retraction system for high-temperature tensile testing</h3>
+          <p>During tensile tests at ATI, the measurement probes touching the sample were breaking every time the sample fractured. I designed a 3-axis positioning system that pulls the probe away from the sample so it survives the break, built to work inside the test’s high-temperature vacuum environment.</p>
+          <ul class="tools" aria-label="Tools used">
+            <li>Autodesk Inventor</li><li>High-temperature design</li><li>Vacuum compatibility</li><li>Test fixtures</li>
+          </ul>
+        </div>
+        <div class="brief">
+          <p class="brief-title">Design brief</p>
+          <dl>
+          <div><dt>Problem</dt><dd>Probes broke when the tensile sample fractured, adding cost and downtime to testing.</dd></div>
+          <div><dt>Environment</dt><dd>High temperature, under vacuum, so materials and mechanisms had to tolerate both.</dd></div>
+          <div><dt>Solution</dt><dd>A 3-axis positioning system that retracts the probe clear of the sample.</dd></div>
+          </dl>
+        </div>
+      </article>
+
+      <article class="project">
+        <div>
+          <p class="when">Hearth &amp; Home Technologies, internship</p>
+          <h3>Automating a vacuum mold former</h3>
+          <p>I turned a vacuum mold former into an automated machine at Hearth &amp; Home. I integrated the sensors, pneumatics, vacuum, heating and safety hardware, then programmed the PLC and the operator interface that runs it.</p>
+          <p>After the first version was running, I ran cycles alongside the workers who load and unload material, and used what I saw to improve both the program and the operator screens.</p>
+          <ul class="tools" aria-label="Tools used">
+            <li>RSLogix 5000</li><li>PLC programming</li><li>HMI design</li><li>Pneumatics</li><li>SolidWorks</li>
+          </ul>
+        </div>
+        <div class="brief">
+          <p class="brief-title">System</p>
+          <dl>
+          <div><dt>Sensing</dt><dd>Position sensors</dd></div>
+          <div><dt>Actuation</dt><dd>Pneumatic cylinders and valves, vacuum pump, heating unit</dd></div>
+          <div><dt>Safety</dt><dd>Safety latches tied into the control logic</dd></div>
+          <div><dt>Controls</dt><dd>PLC program and operator interface in RSLogix 5000</dd></div>
+          <div><dt>Refinement</dt><dd>Program and UI revised after running cycles with operators</dd></div>
+          </dl>
+        </div>
+      </article>
+
+      <article class="project">
+        <div>
+          <p class="when">MACH, 2026</p>
+          <h3>Camera and electronics mounts for an autonomous “fat truck”</h3>
+          <p>I outfitted a balloon-tired off-road vehicle with the sensing hardware it needs for automation, designing the mounts and enclosure so everything fits the vehicle and survives off-road use.</p>
+          <ul class="facts">
+            <li>Designed front and rear camera mounts as formed sheet-metal brackets that hold each camera at an angle.</li>
+            <li>Added attachment points for the GPS units.</li>
+            <li>Mounted a self-contained electronics enclosure holding the Ethernet switch, GPS modem, antenna modem, I/O module and command module.</li>
+          </ul>
+          <ul class="tools" aria-label="Tools used">
+            <li>Sheet metal design</li><li>Sensor integration</li><li>Enclosure design</li>
+          </ul>
+        </div>
+        <div class="shots">
+          <figure class="shot">
+            <img src="images/fat-truck.jpg" width="960" height="540" alt="The fat truck, a boxy black-and-white vehicle on large balloon tires, parked in a grassy field.">
+            <figcaption>The vehicle in the field.</figcaption>
+          </figure>
+          <div class="renders">
+            <figure class="shot"><img src="images/fat-truck-front-mount.jpg" width="1090" height="800" alt="CAD render of the front camera mount: a bent sheet-metal bracket holding a stereo camera."><figcaption>Front camera mount</figcaption></figure>
+            <figure class="shot"><img src="images/fat-truck-rear-mount.jpg" width="1200" height="771" alt="CAD render of the rear camera mount: an angled sheet-metal bracket supporting the camera housing."><figcaption>Rear camera mount</figcaption></figure>
+            <figure class="shot"><img src="images/fat-truck-enclosure.jpg" width="1200" height="852" alt="CAD render of the long sheet-metal electronics enclosure with an antenna dome on one end and a GPS antenna on the other."><figcaption>Electronics enclosure</figcaption></figure>
+          </div>
+        </div>
+      </article>
+
+      <!--
+        TO ADD A PROJECT: copy everything from <article class="project"> to </article>
+        above, paste it here, then change the date, title, text, tools and image.
+        Put new images in the images/ folder.
+      -->
+    </div>
+  </section>
+
+  <section id="experience">
+    <div class="wrap">
+      <div class="sec-head">
+        <h2>Experience</h2>
+        <p>Most recent first.</p>
+      </div>
+      <ol class="jobs">
+        <li class="job">
+          <div class="job-meta"><p class="org">MACH</p><p>Formerly Redshield Equipment</p><p>Ely, IA</p><p>Sep 2018 to present</p></div>
+          <div>
+            <h3>Mechanical Engineer, MACH <span>Feb 2023 to present, part-time</span></h3>
+            <ul class="facts">
+              <li>Build custom kits of sensors, hydraulics, actuators and custom components that refit off-road vehicles for full self-driving.</li>
+              <li>Design rugged electronics enclosures and mounting brackets for autonomous equipment, including a stereo camera housing now sold for off-road automation.</li>
+              <li>Fabricate metal and plastic parts on CNC machines, welders and press brakes.</li>
+            </ul>
+            <h3 style="margin-top:24px">Mechanical Engineer, Redshield Equipment <span>Sep 2018 to Feb 2023</span></h3>
+            <ul class="facts">
+              <li>Designed and built electric unmanned vehicles for use in dangerous environments.</li>
+              <li>Laid out and assembled wiring harnesses for electric and autonomous vehicles.</li>
+            </ul>
+          </div>
+        </li>
+        <li class="job">
+          <div class="job-meta"><p class="org">Hearth &amp; Home Technologies</p><p>Mt. Pleasant, IA</p><p>Two summer internships</p></div>
+          <div>
+            <h3>Mechatronics Engineering Intern <span>May to Aug 2026</span></h3>
+            <h3>Mechanical Engineering Intern <span>Jun to Aug 2025</span></h3>
+            <ul class="facts">
+              <li>Automated a manual manufacturing process by integrating sensors and electrical controls and programming the PLC and operator interface in RSLogix 5000.</li>
+              <li>Tested the system with operators and improved the control logic, functions and usability based on their feedback.</li>
+              <li>Analyzed cycle times on a newly installed autonomous manufacturing cell and found 1.5 seconds of potential savings in a roughly 25-second process.</li>
+            </ul>
+          </div>
+        </li>
+        <li class="job">
+          <div class="job-meta"><p class="org">ATI</p><p>Millersburg, OR</p><p>Jun to Aug 2024</p></div>
+          <div>
+            <h3>Mechatronics Intern</h3>
+            <ul class="facts">
+              <li>Designed a 3-axis probe positioning system for high-temperature vacuum tensile testing that retracts the probe so it survives when the sample fractures.</li>
+              <li>Selected materials and components compatible with high-temperature vacuum environments.</li>
+              <li>Worked with non-engineers to solve technical problems.</li>
+            </ul>
+          </div>
+        </li>
+        <li class="job">
+          <div class="job-meta"><p class="org">Wave Energy Conversion</p><p>Undergraduate research</p><p>Jan 2024 to May 2025</p></div>
+          <div>
+            <h3>Undergraduate Researcher</h3>
+            <ul class="facts">
+              <li>Built machine learning models to find more efficient ways to generate power from ocean waves.</li>
+              <li>Tested scaled prototypes in a custom-designed wave tank.</li>
+            </ul>
+          </div>
+        </li>
+      </ol>
+    </div>
+  </section>
+
+  <section id="about">
+    <div class="wrap about-grid">
+      <div>
+        <h2 style="margin-bottom:24px">About</h2>
+        <p>I’ve been building machines since before I could drive one. My first big project was an autonomous farm robot I designed and built at 12, which took third place against college and industry teams. Since 2018 I’ve worked professionally on unmanned and autonomous vehicles, and my internships added test fixtures and factory automation. The common thread is the point where mechanical design meets electronics and software.</p>
+        <p>My degree is in mechanical engineering, and my computer science minor means I can talk with the software and controls side of a project and design hardware that makes their job easier.</p>
+      </div>
+      <dl class="edu">
+        <div><dt>School</dt><dd>Iowa State University</dd></div>
+        <div><dt>Degree</dt><dd>B.S. Mechanical Engineering, May 2027</dd></div>
+        <div><dt>Minor</dt><dd>Computer Science</dd></div>
+        <div><dt>CAD</dt><dd>Autodesk Inventor, SolidWorks</dd></div>
+        <div><dt>Controls</dt><dd>Studio 5000, RSLogix 5000, LabVIEW</dd></div>
+        <div><dt>Programming</dt><dd>Python, Java, MATLAB</dd></div>
+        <div><dt>Shop</dt><dd>CNC machining, welding, press brake, wiring harnesses</dd></div>
+        <div><dt>Interests</dt><dd>Robotics, mechatronics, industrial automation, rugged enclosures</dd></div>
+      </dl>
+    </div>
+  </section>
+
+  <section id="contact" class="contact">
+    <div class="wrap">
+      <h2>Hiring for mechanical design or robotics? Let’s talk.</h2>
+      <p>I’m open to full-time roles in mechanical engineering, mechatronics and automation. Email is the fastest way to reach me.</p>
+      <div class="btns">
+        <a class="btn primary" href="mailto:Sage@Schildroth.net">Email Sage</a>
+        <button class="copy" type="button" data-email="Sage@Schildroth.net">Copy email address</button>
+        <a class="btn" href="https://www.linkedin.com/in/sage-schildroth" target="_blank" rel="noopener">LinkedIn</a>
+        <a class="btn" href="Sage_Schildroth_Resume.pdf" target="_blank" rel="noopener">Résumé (PDF)</a>
+      </div>
+      <ul class="contact-list">
+        <li><a href="mailto:Sage@Schildroth.net">Sage@Schildroth.net</a></li>
+        <li><a href="mailto:Sages2@iastate.edu">Sages2@iastate.edu</a></li>
+        <li><a href="https://www.linkedin.com/in/sage-schildroth" target="_blank" rel="noopener">linkedin.com/in/sage-schildroth</a></li>
+      </ul>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="titleblock">
+      <div><span>Title</span><strong>Portfolio of Sage Schildroth</strong></div>
+      <div><span>Drawn by</span><strong>S. Schildroth</strong></div>
+      <div><span>Rev</span><strong id="rev">2026</strong></div>
+      <div><span>Sheet</span><strong>1 of 1</strong></div>
+    </div>
+  </div>
+</footer>
+
+<script>
+document.querySelectorAll('.copy').forEach(function(b){
+  b.addEventListener('click',function(){
+    var e=b.getAttribute('data-email'), t=b.textContent;
+    function done(){b.textContent='Email address copied';setTimeout(function(){b.textContent=t},2000)}
+    if(navigator.clipboard){navigator.clipboard.writeText(e).then(done,function(){b.textContent=e})}
+    else{b.textContent=e}
+  });
+});
+</script>
+</body>
+</html>
